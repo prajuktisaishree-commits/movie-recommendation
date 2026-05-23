@@ -47,7 +47,7 @@ movie-recommender/
 ### 1. Clone & set up environment
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/movie-recommender.git
+git clone https://github.com/prajuktisaishree-commits/movie-recommender.git
 cd movie-recommender
 
 python -m venv venv
