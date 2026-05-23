@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎬 Movie Recommender</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">🎬 <span>CineMatch</span></div>
+      <p class="tagline">AI-powered movie recommendations just for you</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Mode Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="collaborative">👥 For You</button>
+      <button class="tab" data-tab="content">🎭 Similar Movies</button>
+      <button class="tab" data-tab="genre">🎪 By Genre</button>
+    </div>
+
+    <!-- ── COLLABORATIVE ── -->
+    <section id="tab-collaborative" class="tab-panel active">
+      <div class="panel-header">
+        <h2>Personalized Recommendations</h2>
+        <p>Based on what users with similar taste enjoyed — collaborative filtering via cosine similarity.</p>
+      </div>
+      <div class="controls">
+        <label>User ID
+          <input type="number" id="cf-user-id" value="1" min="1" max="30" />
+        </label>
+        <label>Results
+          <input type="number" id="cf-n" value="8" min="1" max="20" />
+        </label>
+        <button id="cf-btn" class="btn-primary">Get Recommendations</button>
+      </div>
+      <div id="cf-results" class="results-grid"></div>
+    </section>
+
+    <!-- ── CONTENT-BASED ── -->
+    <section id="tab-content" class="tab-panel">
+      <div class="panel-header">
+        <h2>Similar Movies</h2>
+        <p>Finds movies with similar genres and themes using TF-IDF cosine similarity.</p>
+      </div>
+      <div class="controls">
+        <label>Movie Title
+          <select id="cb-title"></select>
+        </label>
+        <label>Results
+          <input type="number" id="cb-n" value="8" min="1" max="20" />
+        </label>
+        <button id="cb-btn" class="btn-primary">Find Similar</button>
+      </div>
+      <div id="cb-results" class="results-grid"></div>
+    </section>
+
+    <!-- ── GENRE ── -->
+    <section id="tab-genre" class="tab-panel">
+      <div class="panel-header">
+        <h2>Browse by Genre</h2>
+        <p>Select one or more genres to discover matching movies.</p>
+      </div>
+      <div class="controls">
+        <label>Pick Genres</label>
+        <div id="genre-chips" class="genre-chips"></div>
+        <label>Results
+          <input type="number" id="g-n" value="10" min="1" max="20" />
+        </label>
+        <button id="g-btn" class="btn-primary">Browse</button>
+      </div>
+      <div id="g-results" class="results-grid"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built with Python · Flask · scikit-learn &nbsp;|&nbsp; <a href="https://github.com" target="_blank">View on GitHub</a></p>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
